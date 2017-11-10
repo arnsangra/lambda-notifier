@@ -1,0 +1,61 @@
+{
+    "objects": [
+        {
+            "failureAndRerunMode": "CASCADE",
+            "resourceRole": "DataPipelineDefaultResourceRole",
+            "role": "DataPipelineDefaultRole",
+            "scheduleType": "ONDEMAND",
+            "name": "Default",
+            "id": "Default"
+        },
+        {
+            "name": "CliActivity",
+            "id": "CliActivity",
+            "runsOn": {
+                "ref": "Ec2Instance"
+            },
+            "type": "ShellCommandActivity",
+            "onFail": {
+                "ref": "OnFailNotification"
+            },
+            "onSuccess": {
+                "ref": "OnSuccessNotification"
+            },
+            "command": "(sudo yum -y update aws-cli) && (#{myAWSCLICmd})"
+        },
+        {
+            "instanceType": "t1.micro",
+            "name": "Ec2Instance",
+            "id": "Ec2Instance",
+            "type": "Ec2Resource",
+            "terminateAfter": "50 Minutes"
+        },
+        {
+            "id": "OnSuccessNotification",
+            "name": "Success Notification",
+            "type": "SnsAlarm",
+            "topicArn": "arn:aws:sns:us-west-2:125955712716:slack_mainflux_integration",
+            "subject": "node success",
+            "message": "ok"
+        },
+        {
+            "id": "OnFailNotification",
+            "name": "Fail Notification",
+            "type": "SnsAlarm",
+            "topicArn": "arn:aws:sns:us-west-2:125955712716:slack_mainflux_integration",
+            "subject": "node error",
+            "message": "#{node}"
+        }
+    ],
+    "parameters": [
+        {
+            "watermark": "aws [options] <command> <subcommand> [parameters]",
+            "description": "AWS CLI command",
+            "id": "myAWSCLICmd",
+            "type": "String"
+        }
+    ],
+    "values": {
+        "myAWSCLICmd": "aws s3 ls s3://ggco-swamp/"
+    }
+}

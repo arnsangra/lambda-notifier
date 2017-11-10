@@ -1,0 +1,22 @@
+{
+    "Records": [
+        {
+            "EventSource": "aws:sns",
+            "EventSubscriptionArn": "arn:aws:sns:us-west-2: 125955712716:slack_mainflux_integration:db24c5a3-6e67-42be-9d23-23d26b1934f9",
+            "EventVersion": "1.0",
+            "Sns": {
+                "Message": "ok",
+                "MessageAttributes": {},
+                "MessageId": "8497554a-0ee1-5e61-a37e-0735abeab215",
+                "Signature": "I+MeJPrOpVrnIScQbD1UjtAu6HpasuDPynQG2FdbWYMhm7x9sQQZv+Qx8JWjxX4+m45ochmV3apdokVbdl0xtN3yKftudwfpJ8S6CrjYVfitUqa7TMkF7JMrnmYIIJiFpXzZo0R/SFr+9ttInHx2Nx2/khoyvXzip4EJ4JVQTbj0ZPvfUUJPWOGQLVAAAHd793YP/b280zIHJymlanUVbsLWbmvOXC8OBO9W5ed1FmjuZypIHiSQfk1MPwPVm4BhJwjYDlg5PeQLPkq99ICJrcrhM0D7UG+i+7I/3clilfX8IASvw+buUZAxcDKOion6l6dnvv34b0NOjwLCS4b+bw==",
+                "SignatureVersion": "1",
+                "SigningCertUrl": "https: //sns.us-west-2.amazonaws.com/SimpleNotificationService-433026a4050d206028891664da859041.pem",
+                "Subject": "node success",
+                "Timestamp": "2017-11-10T12: 59: 55.016Z",
+                "TopicArn": "arn:aws:sns:us-west-2: 125955712716:slack_mainflux_integration",
+                "Type": "Notification",
+                "UnsubscribeUrl": "https: //sns.us-west-2.amazonaws.com/?Action=Unsubscribe&SubscriptionArn=arn:aws:sns:us-west-2:125955712716:slack_mainflux_integration:db24c5a3-6e67-42be-9d23-23d26b1934f9"
+            }
+        }
+    ]
+}
